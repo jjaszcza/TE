@@ -22,7 +22,13 @@ public class Exercise03_ShippingTotal {
     calculateShippingTotal(45) ➔ 23.75
      */
     public double calculateShippingTotal(int weightPounds) {
-        return 0;
+
+      double overWeight = weightPounds - MAX_WEIGHT_POUNDS;
+      double over40PoundPrice = (MAX_WEIGHT_POUNDS * UP_TO_40_LB_RATE) + (overWeight * OVER_40_LB_RATE);
+        if (weightPounds > MAX_WEIGHT_POUNDS) {
+            return over40PoundPrice;
+        } else
+        return weightPounds * UP_TO_40_LB_RATE;
     }
 
     /*
@@ -38,7 +44,23 @@ public class Exercise03_ShippingTotal {
     calculateShippingTotal(45, true) ➔ 21.375
      */
     public double calculateShippingTotal(int weightPounds, boolean hasDiscount) {
-        return 0;
+        double overWeight = weightPounds - MAX_WEIGHT_POUNDS;
+        double discountCode = .90;
+        double over40PoundPrice = ((MAX_WEIGHT_POUNDS * UP_TO_40_LB_RATE) + (overWeight * OVER_40_LB_RATE));
+        double under40PoundPrice = ((weightPounds * UP_TO_40_LB_RATE));
+
+        if (weightPounds > MAX_WEIGHT_POUNDS && hasDiscount) {
+            return over40PoundPrice * discountCode;
+
+        } else if (weightPounds <= MAX_WEIGHT_POUNDS && hasDiscount) {
+            return under40PoundPrice * discountCode;
+        }
+
+        else if (weightPounds > MAX_WEIGHT_POUNDS) {
+            return over40PoundPrice;
+        } else
+
+        return under40PoundPrice;
     }
 
     /*
@@ -53,6 +75,19 @@ public class Exercise03_ShippingTotal {
     calculateShippingTotal(45, 0.2) ➔ 19.0
      */
     public double calculateShippingTotal(int weightPounds, double discountPercentage) {
-        return 0;
+        double overWeight = weightPounds - MAX_WEIGHT_POUNDS;
+        double over40PoundPrice = ((MAX_WEIGHT_POUNDS * UP_TO_40_LB_RATE) + (overWeight * OVER_40_LB_RATE));
+        double under40PoundPrice = ((weightPounds * UP_TO_40_LB_RATE));
+
+
+
+        if (weightPounds > MAX_WEIGHT_POUNDS) {
+            return over40PoundPrice * (1.0 - discountPercentage);
+        } else
+
+            return under40PoundPrice *(1.0 - discountPercentage);
     }
+
+
+
 }

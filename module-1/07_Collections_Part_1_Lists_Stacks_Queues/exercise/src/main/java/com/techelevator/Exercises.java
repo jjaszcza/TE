@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Exercises {
@@ -16,7 +17,15 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"]
 	 */
 	public List<String> array2List(String[] stringArray) {
-		return null;
+
+
+		List<String> fruit = new ArrayList<>();
+
+		for (int index = 0; index < stringArray.length; index++) {
+			fruit.add(stringArray[index]);
+
+		}
+		return fruit;
 	}
 
 	/*
@@ -26,7 +35,13 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
+		String[] fruitList = new String[stringList.size()];
+
+		for (int index = 0; index < stringList.size(); index++) {
+			fruitList[index] = stringList.get(index);
+		}
+
+		return fruitList;
 	}
 
 	/*
@@ -37,8 +52,16 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
-	}
+
+		List<String> words = new ArrayList<>();
+			for(String item : stringArray) {
+				if (item.length() != 4) {
+					words.add(item);
+				}
+			}
+		return words;
+		}
+
 
 	/*
 	 Given an array of ints, divide each int by 2, and return an ArrayList of Doubles.
@@ -47,7 +70,15 @@ public class Exercises {
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+
+		List<Double> numbers = new ArrayList<>();
+			for(Integer item : intArray) {
+
+				double newValue = ((double)item / 2);
+				numbers.add((newValue));
+			}
+
+		return numbers;
 	}
 
 	/*
@@ -57,7 +88,15 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 81238
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		return null;
+
+	Collections.sort(integerList);
+	Integer largestNum = integerList.get(integerList.size()-1);
+
+//	for (int index = 0; index < integerList.size(); index++) {
+	//	}
+
+	return largestNum ;
+
 	}
 
 	/*

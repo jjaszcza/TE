@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class Exercises {
@@ -34,7 +35,29 @@ public class Exercises {
 	 *
 	 */
 	public String animalGroupName(String animalName) {
-		return null;
+
+		Map<String, String> animals = new HashMap<>();
+
+		animals.put("rhino", "Crash");
+		animals.put("giraffe", "Tower");
+		animals.put("elephant", "Herd");
+		animals.put("lion", "Pride");
+		animals.put("crow", "Murder");
+		animals.put("pigeon", "Kit");
+		animals.put("flamingo", "Pat");
+		animals.put("deer", "Herd");
+		animals.put("dog", "Pack");
+		animals.put("crocodile", "Float");
+
+		String notInList = "unknown";
+
+			if(animalName != null && animals.containsKey(animalName.toLowerCase())) {
+				return animals.get(animalName.toLowerCase());
+
+			} else {
+
+				return notInList;
+			}
 	}
 
 	/*
@@ -60,7 +83,23 @@ public class Exercises {
 	 *
 	 */
 	public double isItOnSale(String itemNumber) {
-		return -1.0;
+
+		Map<String, Double> itemsForSale = new HashMap<>();
+
+		itemsForSale.put("KITCHEN4001", 0.20);
+		itemsForSale.put("GARAGE1070", 0.15);
+		itemsForSale.put("LIVINGROOM", 0.10);
+		itemsForSale.put("KITCHEN6073", 0.40);
+		itemsForSale.put("BEDROOM3434", 0.60);
+		itemsForSale.put("BATH0073", 0.15);
+
+		Double noDiscount = 0.00;
+
+		if(itemNumber != null && itemsForSale.containsKey(itemNumber.toUpperCase())) {
+			return itemsForSale.get(itemNumber.toUpperCase());
+		} else {
+			return noDiscount;
+		}
 	}
 
 	/*
@@ -74,7 +113,19 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
-		return null;
+
+		int peterMoney = peterPaul.get("Peter");
+		int paulMoney = peterPaul.get("Paul");
+
+		if(peterMoney > 0 && paulMoney < 1000) {
+			int peterMoneyDifference = peterMoney/2;
+			int paulMoneyDifference = paulMoney + peterMoneyDifference;
+
+			peterPaul.put("Peter", peterMoney - peterMoneyDifference);
+			peterPaul.put("Paul", paulMoneyDifference);
+		}
+
+		return peterPaul;
 	}
 
 	/*
@@ -87,7 +138,21 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
-		return null;
+
+		int peterMoney = peterPaul.get("Peter");
+		int paulMoney = peterPaul.get("Paul");
+
+		if(peterMoney >= 5000 && paulMoney >= 10000) {
+			int peterMoneyDifference = peterMoney /4;
+			int PaulMoneyDifference = paulMoney /4;
+
+			peterPaul.put("Peter", peterMoney - peterMoneyDifference);
+			peterPaul.put("Paul", paulMoney - PaulMoneyDifference);
+			peterPaul.put("PeterPaulPartnership", peterMoneyDifference + PaulMoneyDifference);
+
+		}
+
+		return peterPaul;
 	}
 
 	/*
@@ -99,7 +164,20 @@ public class Exercises {
 	 * beginningAndEnding(["muddy", "good", "moat", "good", "night"]) → {"g": "d", "m": "t", "n": "t"}
 	 */
 	public Map<String, String> beginningAndEnding(String[] words) {
-		return null;
+
+		Map<String, String> reducedWord = new HashMap<>();
+
+		for(String word : words) {
+			// get the first letter
+		String firstLetter = word.substring(0, 1);
+			// get the last letter
+		String lastLetter = word.substring(word.length()-1);
+			// add the pair <first-letter, last-letter> to the map
+
+			reducedWord.put(firstLetter, lastLetter);
+		}
+
+		return reducedWord;
 	}
 
 	/*
@@ -115,9 +193,20 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> wordCount(String[] words) {
-		return null;
-	}
 
+		Map<String, Integer> stringCounter = new HashMap<>();
+		int count = 1;
+		for (String word : words) {
+			if (!stringCounter.containsKey(word)) {
+				stringCounter.put(word, count);
+			} else {
+				stringCounter.put(word, stringCounter.get(word)+count);
+			}
+
+
+		}
+		return stringCounter;
+	}
 	/*
 	 * Given an array of int values, return a Map<Integer, Integer> with a key for each int, with the value the
 	 * number of times that int appears in the array.
@@ -130,6 +219,16 @@ public class Exercises {
 	 *
 	 */
 	public Map<Integer, Integer> integerCount(int[] ints) {
+
+		Map<Integer, Integer> intCounter = new HashMap<>();
+
+		int count = 1;
+		for(int index = 0; index < ints.length; index++) {
+			if (!intCounter.containsKey())
+		}
+
+
+
 		return null;
 	}
 

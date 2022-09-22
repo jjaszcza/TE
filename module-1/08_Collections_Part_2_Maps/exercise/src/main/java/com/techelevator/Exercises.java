@@ -224,12 +224,13 @@ public class Exercises {
 
 		int count = 1;
 		for(int index = 0; index < ints.length; index++) {
-			if (!intCounter.containsKey())
+			if (!intCounter.containsKey(ints)) {
+			}
+
+
+
 		}
-
-
-
-		return null;
+		return intCounter;
 	}
 
 	/*
@@ -257,7 +258,9 @@ public class Exercises {
 	 */
 	public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse,
 			Map<String, Integer> remoteWarehouse) {
-		return null;
+		Map<String, Integer> somemap = new HashMap<>();
+
+		return somemap;
 	}
 
 	/*
@@ -276,7 +279,9 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> last2Revisited(String[] words) {
-		return null;
+		Map<String, Integer> maps = new HashMap<>();
+
+		return maps;
 	}
 
 }

@@ -31,7 +31,10 @@ public class Tutorial {
         int highestTemperatureIndex = 0;
 
         for (int j = 1; j < forecastTemperatures.length; j++ );
-
+            if (forecastTemperatures[j] > highestTemperatureValue) {
+                highestTemperatureValue = forecastTemperatures[j];
+                highestTemperatureIndex = j;
+            }
 
     }
 }

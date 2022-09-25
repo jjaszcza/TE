@@ -24,7 +24,13 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(110) ➔ 22.5
      */
     public double calculateElectricBill(double unitsUsed) {
-        return 0;
+       double unitsUsedBasic = unitsUsed *= BASIC_SERVICE_RATE;
+       double unitsUsedExcess = unitsUsed *= EXCESS_SERVICE_RATE;
+        if (unitsUsed > BASIC_SERVICE_LIMIT) {
+
+        }
+
+        return unitsUsedBasic;
     }
 
     /*

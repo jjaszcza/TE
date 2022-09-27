@@ -36,8 +36,9 @@ public class Book {
 	
 	public Book() {
 	}
+	@Override
+	public String toString() {
 
-	public String bookInfo() {
-	    return "Title: " + title + ", Author: " + author + ", Price: $" + price;
+		return "Title: " + title + ", Author: " + author + ", Price: $" + price;
 	}
 }

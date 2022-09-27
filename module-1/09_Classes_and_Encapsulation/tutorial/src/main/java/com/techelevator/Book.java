@@ -44,6 +44,9 @@ public class Book {
     public Book() {
 
     }
+    public String bookInfo() {
+        return "Title: " + title + ", Author: " + author + ", Price: $" + price;
+    }
 }
 
 

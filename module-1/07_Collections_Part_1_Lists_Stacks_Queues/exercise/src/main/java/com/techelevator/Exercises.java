@@ -106,7 +106,15 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		return null;
+
+		List<Integer> oddNumbers = new ArrayList<>();
+		for(Integer item : integerArray) {
+			if (item % 2 != 0) {
+				oddNumbers.add(item);
+			}
+		}
+
+		return oddNumbers;
 	}
 
 	/*
@@ -133,6 +141,7 @@ public class Exercises {
 	HINT: To convert an Integer x to a String, you can use x.toString() in your code. For example, if x = 1, then x.toString() returns "1."
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
+
 		return null;
 	}
 

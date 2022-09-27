@@ -1,6 +1,6 @@
 package com.techelevator;
 
-public class Bid {
+public class Bid extends Object {
 
 	private String bidder;
 	private int bidAmount;
@@ -16,5 +16,14 @@ public class Bid {
 
 	public int getBidAmount() {
 		return bidAmount;
+	}
+
+	public static Bid EmptyBed() {
+		return new Bid("", 0);
+	}
+
+	@Override
+	public String toString() {
+		return this.bidder + " bid " + this.getBidAmount();
 	}
 }

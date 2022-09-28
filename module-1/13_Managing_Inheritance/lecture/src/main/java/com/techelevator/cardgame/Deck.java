@@ -31,7 +31,7 @@ public class Deck {
         int[] pokerSuits = { SPADES, DIAMONDS, CLUBS, HEARTS };
         int[] pokerRanks = { ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING };
 
-        for (int suit : pokerSuits) {
+        for (Suits suit : pokerSuits) {
             for (int rank : pokerRanks) {
                 Card c = new Card(rank, suit, dealFaceUp);
                 cards.add(c);

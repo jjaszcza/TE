@@ -3,8 +3,10 @@ package com.techelevator.farm;
 public class OldMacdonald {
 	public static void main(String[] args) {
 
+		Cat myCat = new Cat();
+
 		Singable[] singables =
-				new Singable[] {new Cow(), new Chicken(), new Pig(), new Tractor()};
+				new Singable[] {new Cow(), new Cat(), new Chicken(), new Pig(), new Tractor()};
 
 		for (Singable singable : singables) {
 			String name = singable.getName();

@@ -1,0 +1,12 @@
+package com.techelevator.access.two;
+
+import com.techelevator.access.one.A;
+
+public class C extends A {
+    public void foo() {
+      this.myPublicString = "I see you!";
+      this.myProtectedString = "I can see you from another package";
+
+
+    }
+}

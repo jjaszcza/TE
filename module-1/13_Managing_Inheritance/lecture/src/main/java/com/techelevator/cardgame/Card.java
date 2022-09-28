@@ -6,15 +6,15 @@ public class Card {
 
     // properties
     private int rank = 0;
-    private int suit = 0;
+    private Suits suit;
     private boolean isFaceUp = true;
 
-    public Card(int rank, int suit) {
+    public Card(int rank, Suits suit) {
         this.rank = rank;
         this.suit = suit;
     }
 
-    public Card(int rank, int suit, boolean faceUp) {
+    public Card(int rank, Suits suit, boolean faceUp) {
         this(rank, suit);
         this.isFaceUp = faceUp;
     }
@@ -28,11 +28,11 @@ public class Card {
         this.rank = rank;
     }
 
-    public void setSuit(int suit) {
+    public void setSuit(Suits suit) {
         this.suit = suit;
     }
 
-    public int getSuit() {
+    public Suits getSuit() {
         return this.suit;
     }
 
@@ -47,7 +47,7 @@ public class Card {
     public String getCardName() {
         String name = "###";
         if (isFaceUp) {
-            name = String.format("%s of %s", getRank(), Card.SUIT_NAMES[this.getSuit() - 1]);
+      //      name = String.format("%s of %s", getRank(), Card.SUIT_NAMES[this.getSuit() - 1]);
         }
         return name;
     }

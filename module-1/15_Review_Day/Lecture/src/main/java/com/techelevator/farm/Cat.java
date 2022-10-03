@@ -1,6 +1,6 @@
 package com.techelevator.farm;
 
-public class Cat extends FarmAnimal {
+public class Cat extends FarmAnimal implements HasCustomSound {
     public Cat() {
         super("cat", "meow");
     }
@@ -20,4 +20,7 @@ public class Cat extends FarmAnimal {
         }
     }
 
+    public String getCustomSound() {
+        return null;
+    }
 }

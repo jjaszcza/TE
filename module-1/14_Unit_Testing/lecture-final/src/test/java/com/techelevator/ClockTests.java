@@ -17,8 +17,8 @@ public class ClockTests {
         String result = c.wakeUp(monday, onVacation);
 
         // assert
-        Assert.assertEquals("should wake up at 7am", "7:00x", result);
-        Assert.assertTrue(false); // DON'T DO THIS!!!
+        Assert.assertEquals("should wake up at 7am", "7:00", result);
+       // Assert.assertTrue(true);
     }
 
     @Test

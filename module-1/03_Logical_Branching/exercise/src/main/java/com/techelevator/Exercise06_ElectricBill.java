@@ -72,6 +72,24 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(110, 120) ➔ -2.0
      */
     public double calculateElectricBill(double unitsUsed, double unitsReturned) {
-        return 0;
+
+       double billTotal = 0;
+        final double netUsage = unitsUsed - unitsReturned;
+
+        //calculate the base bill amount
+        if (netUsage <= BASIC_SERVICE_LIMIT) {
+            billTotal = netUsage * BASIC_SERVICE_RATE;
+        }
+        else {
+            double excess = netUsage - BASIC_SERVICE_LIMIT;
+            billTotal = BASIC_SERVICE_LIMIT * BASIC_SERVICE_RATE;
+            billTotal += excess * EXCESS_SERVICE_RATE;
+        }
+
+        //apply discount if appropriate
+        if (billTotal > 0 && unitsReturned  > 0) {
+            billTotal *= (1-RENEWABLE_ENERGY_DISCOUNT);
+        }
+        return billTotal;
     }
 }

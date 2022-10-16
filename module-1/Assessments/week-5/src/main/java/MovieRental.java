@@ -67,7 +67,7 @@ public class MovieRental {
 
             String lineOfText = fileReader.nextLine();
 
-            String[] line = lineOfText.split("\\,");
+            String[] line = lineOfText.split(",");
 
             String title = line[0];
             String format = line[1];

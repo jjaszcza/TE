@@ -40,7 +40,7 @@ CREATE TABLE purchases
 	, CONSTRAINT pk_purchase PRIMARY KEY (customer_id, art_id, purchase_date) -- composite PK
 	, CONSTRAINT fk_purchases_customers FOREIGN KEY (customer_id) REFERENCES customers (customer_id)
 	, CONSTRAINT fk_purchases_art FOREIGN KEY (art_id) REFERENCES art (art_id)
-)
+);
 
 ALTER TABLE purchases
 	ADD COLUMN solddate TIMESTAMP NULL;

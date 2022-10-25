@@ -20,7 +20,6 @@ public class App {
             consoleService.printMainMenu();
             menuSelection = consoleService.promptForMenuSelection();
             if (menuSelection == 1) {
-             //   System.out.println("Not implemented");
                 this.consoleService.printHotels(this.hotelService.listHotels());
             } else if (menuSelection == 2) {
                // System.out.println("Not implemented");

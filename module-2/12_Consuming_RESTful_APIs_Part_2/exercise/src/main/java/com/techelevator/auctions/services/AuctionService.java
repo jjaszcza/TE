@@ -10,6 +10,9 @@ import org.springframework.web.client.RestTemplate;
 
 import com.techelevator.auctions.model.Auction;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class AuctionService {
 
     public static String API_BASE_URL = "http://localhost:3000/auctions/";
@@ -17,17 +20,54 @@ public class AuctionService {
 
 
     public Auction add(Auction newAuction) {
-        // place code here
-        return null;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Auction> payload = new HttpEntity<>(newAuction, headers);
+        Auction auction = null;
+        try {
+           auction = this.restTemplate.postForObject(API_BASE_URL,
+                    payload,
+                    Auction.class);
+
+        } catch (RestClientResponseException ce) {
+            BasicLogger.log("problem!! " + ce.getRawStatusCode() + ":" + ce.getStatusText());
+        } catch (ResourceAccessException rae) {
+            BasicLogger.log("lost connection with the server");
+        }
+        return auction;
     }
 
     public boolean update(Auction updatedAuction) {
-        // place code here
-        return false;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Auction> payload = new HttpEntity<>(updatedAuction, headers);
+        boolean isUpdated = false;
+        try {
+            this.restTemplate.put(API_BASE_URL + updatedAuction.getId(), payload);
+            isUpdated = true;
+        } catch (RestClientResponseException ce) {
+            BasicLogger.log("problem!! " + ce.getRawStatusCode() + ":" + ce.getStatusText());
+        } catch (ResourceAccessException rae) {
+            BasicLogger.log("lost connection with the server");
+        }
+        return isUpdated;
+
+
     }
 
     public boolean delete(int auctionId) {
-        // place code here
+        Map<String, String> pathParameters = new HashMap<>();
+        pathParameters.put("id", Integer.toString(auctionId));
+
+        try {
+            this.restTemplate.delete(API_BASE_URL + "{id}", pathParameters);
+            return true;
+        } catch (RestClientResponseException ce) {
+            BasicLogger.log("problem!! " + ce.getRawStatusCode() + ":" + ce.getStatusText());
+        } catch (ResourceAccessException rae) {
+            BasicLogger.log("lost connection with the server");
+        }
+
         return false;
     }
 

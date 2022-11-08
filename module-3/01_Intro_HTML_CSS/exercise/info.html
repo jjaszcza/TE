@@ -1,11 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Registration Page</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    
+    <header>
+        <h1>Registration Form</h1>
+        <p>Thank you for filling out the form!</p>
+    </header>
+
+    <main>
+
+        <h2> We won't "track" you based on your favorite color.</h2>
+        <nav>
+            <a href="index.html">return to menu</a>
+        </nav>
+        <form method="post" action="api/registration">
+
+
+            <div>
+                <label for="name">Name:</label>
+                <input required="true" type="text" id="name" name="name">
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input required="true" type="email" id="email" name="email">
+            </div>
+            <div>
+                <label for="date-of-birth">Date of Birth:</label>
+                <input required="true" type="date" id="date-of-birth" name="date-of-birth">
+            </div>
+            <div>
+                <label for="favorite-color">Favorite Color?!</label>
+                <input required="true" type="color" id="favorite-color" name="favorite-color">
+            </div>
+            <div>
+                <label for="lucky-number">Favorite number between 1-10?!</label>
+                <input required="true" min="1" max="10" type="number" id="lucky-number" name="lucky-number">
+            </div>
+            <div>
+                <label for="confirmation">Confirm</label>
+                <input required="true" type="checkbox" id="confirmation" name="confirmation">
+            </div>
+            <input type="submit">
+        </form>
 </body>
+
 </html>

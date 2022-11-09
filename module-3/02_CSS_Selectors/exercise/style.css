@@ -15,3 +15,71 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+aside {
+  position: fixed;
+  width: 200px;
+  border-right: 1px solid rgba(0, 173, 238, 0.4) ;
+  height: 100%;
+}
+
+aside > img {
+  height: 120px;
+  margin: auto;
+  display: block;
+}
+
+ul > li{
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0, 173, 238, 0.4);
+  width: 75%;
+  margin: auto;
+  list-style: none;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  font-weight: bold;
+  
+}
+li > a {
+  color: #00ADEE;
+  text-decoration: none;
+}
+li:first-child {
+  text-decoration: underline;
+}
+
+
+main {
+  margin-left: 200px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+header > img {
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+div > img {
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+section > div {
+ display: inline-block;
+ width: 33%;
+ padding: 10px
+}
+div > h2 {
+  color: #8CC36F;
+}
+
+section h2 i {
+  padding: 10px;
+}
+
+#what-we-do,
+#our-work {
+  border-right: 1px solid rgba(170, 239, 135, 0.8);
+  height: 75%;
+}

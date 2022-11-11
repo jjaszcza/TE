@@ -41,3 +41,18 @@ a:hover {
 .my-account img {
   width: 40px;
 }
+header {
+  display: flex;  
+  
+}
+ul {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+
+ 
+}
+.spacer {
+  flex-grow: 1;
+}
+

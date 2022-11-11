@@ -37,4 +37,18 @@ a:hover {
   color: #00AFEF;
   text-decoration: underline;
 }
+header {
+  display: flex;  
+  
+}
+ul {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+
+ 
+}
+nav {
+  flex-grow: 1;
+}
 

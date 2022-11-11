@@ -32,8 +32,12 @@ a:visited {
   color: #707070;
   text-decoration: none;
 }
-
+s
 a:hover {
   color: #00AFEF;
   text-decoration: underline;
+}
+ul {
+  display: flex;
+  flex-direction: row;
 }

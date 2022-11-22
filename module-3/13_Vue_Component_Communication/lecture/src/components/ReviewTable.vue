@@ -1,8 +1,29 @@
-<template></template>
+<template>
+  <table>
+    <thead>
+      <tr>
+        <th>Reviewer</th>
+        <th>Rating</th>
+        <th>Title</th>
+        <th>Review</th>
+        <th>Favorite</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="review in $store.state.reviews" :key="review.title">
+        <td nowrap>{{ review.reviewer }}</td>
+        <td>{{ review.rating }}</td>
+        <td>{{ review.title }}</td>
+        <td>{{ review.review }}</td>
+        <td>{{ review.favorited }}</td>
+      </tr>
+    </tbody>
+  </table>
+</template>
 
 <script>
 export default {
-  name: "review-table"
+  name: "review-table",
 };
 </script>
 

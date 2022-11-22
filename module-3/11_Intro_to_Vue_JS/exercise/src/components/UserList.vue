@@ -32,8 +32,11 @@
         </td>
       </tr>
       <!-- user listing goes here -->
-      <tr v-for="row in filteredList" v-bind:key="row.users">
-        <!-- v-bind:class="{ inactive: user.status === 'Inactive' }" -->
+      <tr
+        v-for="row in filteredList"
+        v-bind:key="row.users"
+        v-bind:class="{ inactive: row.status === 'Inactive' }"
+      >
         <td>{{ row.firstName }}</td>
         <td>{{ row.lastName }}</td>
         <td>{{ row.username }}</td>

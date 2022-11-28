@@ -1,24 +1,16 @@
 <template>
   <div class="card">
-    <h1
-      class="book-title"
-      v-for="book in $store.state.books"
-      v-bind:key="book.title"
-    >
+    <h1 class="book-title">
       {{ book.title }}
     </h1>
 
-    <!-- <img
+    <img
       v-if="book.isbn"
       v-bind:src="
         'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'
       "
-    /> -->
-    <h2
-      class="book-author"
-      v-for="book in $store.state.books"
-      v-bind:key="book.author"
-    >
+    />
+    <h2 class="book-author">
       {{ book.author }}
     </h2>
   </div>

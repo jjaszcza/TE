@@ -34,7 +34,13 @@ export default {
      */
     getCard(boardID, cardID) {
         // todo - fetch the specified story card
-        return null;
+
+        return http.get(`/boards/${boardID}`)
+            .then((response) => {
+                const board = response.data;
+                const card = board.cards.find(card => card.id == cardID)
+                return card;
+            });
     }
 
 }

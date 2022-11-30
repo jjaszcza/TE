@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue'
 import MyBooks from '../views/MyBooks.vue'
 import NewBook from '../views/NewBook.vue'
-import BookDetails from '../views/BookDetails.vue'
+// import BookDetails from '../views/BookDetails.vue'
 
 Vue.use(VueRouter);
 

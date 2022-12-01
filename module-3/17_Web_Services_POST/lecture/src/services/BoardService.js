@@ -11,6 +11,11 @@ const requestConfig = {
 };
 
 export default {
+    /**
+     * 
+     * @returns {Promise} a promise that resolves to an Axios result
+     */
+
 
     getBoards() {
         return http.get('/boards');
@@ -34,6 +39,15 @@ export default {
 
     deleteCard(cardID) {
         return http.delete(`/cards/${cardID}`, requestConfig);
+    },
+
+    addBoard(board) {
+        return http.post('/boards', board, requestConfig);
+    },
+
+    deleteBoard(boardID) {
+        return http.delete(`/boards/${boardID}`);
     }
+
 
 }

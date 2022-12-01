@@ -2,7 +2,9 @@
   <div id="sideNav">
     <h1>My Kanban Boards</h1>
     <div class="boards">
-      <div class="status-message error" v-show="errorMsg !== ''">{{errorMsg}}</div>
+      <div class="status-message error" v-show="errorMsg !== ''">
+        {{ errorMsg }}
+      </div>
       <div class="loading" v-if="isLoading">
         <img src="../assets/ping_pong_loader.gif" />
       </div>
@@ -16,21 +18,38 @@
       >
         {{ board.title }}
       </router-link>
-      <button class="btn addBoard" v-if="!isLoading && !showAddBoard" v-on:click="showAddBoard = !showAddBoard">Add Board</button>
+      <button
+        class="btn addBoard"
+        v-if="!isLoading && !showAddBoard"
+        v-on:click="showAddBoard = !showAddBoard"
+      >
+        Add Board
+      </button>
       <form v-if="showAddBoard">
         Board Title:
         <input type="text" class="form-control" v-model="newBoard.title" />
         Background Color:
-        <input type="text" class="form-control" v-model="newBoard.backgroundColor" />
-        <button class="btn btn-submit" v-on:click.prevent="saveNewBoard">Save</button>
-        <button class="btn btn-cancel" v-on:click="showAddBoard = !showAddBoard">Cancel</button>
+        <input
+          type="text"
+          class="form-control"
+          v-model="newBoard.backgroundColor"
+        />
+        <button class="btn btn-submit" v-on:click.prevent="saveNewBoard">
+          Save
+        </button>
+        <button
+          class="btn btn-cancel"
+          v-on:click="showAddBoard = !showAddBoard"
+        >
+          Cancel
+        </button>
       </form>
     </div>
   </div>
 </template>
 
 <script>
-import boardsService from '../services/BoardService';
+import boardsService from "../services/BoardService";
 
 export default {
   data() {
@@ -38,10 +57,10 @@ export default {
       isLoading: true,
       showAddBoard: false,
       newBoard: {
-        title: '',
-        backgroundColor: this.randomBackgroundColor()
+        title: "",
+        backgroundColor: this.randomBackgroundColor(),
       },
-      errorMsg: ''
+      errorMsg: "",
     };
   },
   created() {
@@ -54,13 +73,12 @@ export default {
   },
   methods: {
     retrieveBoards() {
-      boardsService.getBoards().then(response => {
+      boardsService.getBoards().then((response) => {
         this.$store.commit("SET_BOARDS", response.data);
         this.isLoading = false;
 
         // only handle active board logic if there are boards
         if (this.$store.state.boards.length > 0) {
-
           // select first board
           const boardId = response.data[0].id;
 
@@ -75,17 +93,40 @@ export default {
       });
     },
     saveNewBoard() {
-
+      this.isLoading = true;
+      boardsService
+        .addBoard(this.newBoard)
+        .then((r) => {
+          if (r.status === 201) {
+            this.retrieveBoards();
+            this.showAddBoard = false;
+            this.newBoard = {
+              title: "",
+              backgroundColor: this.randomBackgroundColor(),
+            };
+          }
+        })
+        .catch((err) => {
+          if (err.response) {
+            this.errorMsg = `party foul!: ${err.response.statusText}`;
+          }
+          if (err.request) {
+            this.errorMsg = "you got ghosted.";
+          } else {
+            this.errorMsg = "what did you do?!";
+          }
+          this.isLoading = false;
+        });
     },
     randomBackgroundColor() {
       return "#" + this.generateHexCode();
     },
     generateHexCode() {
-      var bg = Math.floor(Math.random()*16777215).toString(16);
+      var bg = Math.floor(Math.random() * 16777215).toString(16);
       if (bg.length !== 6) bg = this.generateHexCode();
       return bg;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -137,11 +178,14 @@ h1 {
 .form-control {
   margin-bottom: 10px;
 }
-.btn {margin-bottom: 35px;}
+.btn {
+  margin-bottom: 35px;
+}
 .loading {
   flex: 3;
 }
-.board:hover:not(.router-link-active), .addBoard:hover {
+.board:hover:not(.router-link-active),
+.addBoard:hover {
   font-weight: bold;
 }
 .board-active {
